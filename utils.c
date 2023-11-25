@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/25 13:48:08 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/25 14:48:44 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ int	check_val(char *s)
 	return (0);
 }
 
+static int cleanup(int *list, int return_code)
+{
+	free(list);
+	return (return_code);
+}
+
 //TODO:cleanup malloc
 int	check_input(size_t ac, char **av)
 {
@@ -35,7 +41,7 @@ int	check_input(size_t ac, char **av)
 	while (i < ac)
 	{
 		if (check_val(av[i]))
-			return (1);
+			return (cleanup(list, 1));
 		list[j++] = ft_atoi(av[i++]);
 	}
 	i = 0;
@@ -44,10 +50,10 @@ int	check_input(size_t ac, char **av)
 		j = i + 1;
 		while (j < ac - 1)
 			if (list[j++] == list[i])
-				return (1);
+				return (cleanup(list, 1));
 		i++;
 	}
-	return (0);
+	return (cleanup(list, 0));
 }
 
 void	print_stack(t_stack *stack, int del)

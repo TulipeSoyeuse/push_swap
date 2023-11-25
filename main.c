@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/25 13:32:40 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/25 14:45:15 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int main(int ac, char **av)
 		}
 	stack_a = init_stack(ac - 1, &av[1]);
 	//stack_b = NULL;
-	print_stack(stack_a);
+	print_stack(stack_a, 1);
 }
