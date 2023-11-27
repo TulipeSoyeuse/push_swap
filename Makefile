@@ -6,7 +6,7 @@
 #    By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 11:10:00 by rdupeux           #+#    #+#              #
-#    Updated: 2023/11/25 13:34:57 by rdupeux          ###   ########.fr        #
+#    Updated: 2023/11/27 17:14:17 by rdupeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,14 +30,14 @@ $(LIBFT) :
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
-debug: $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -g3 $^ -o $(DEBUG)
+debug: $(SRCS) $(LIBFT)
+	$(CC) -g3 $(CFLAGS) $^ -o $(DEBUG)
 # Clean Up Objects, Exectuables, Dumps out of source directory
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
 	make -C libft/ fclean
-	rm -f $(NAME) a.out core $(name)
+	rm -f $(NAME) a.out core $(name) $(DEBUG)
 
 .PHONY: all clean fclean re

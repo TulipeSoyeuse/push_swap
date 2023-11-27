@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/25 14:48:44 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/27 17:10:23 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ int	check_val(char *s)
 	return (0);
 }
 
-static int cleanup(int *list, int return_code)
+static int	cleanup(int *list, int return_code)
 {
 	free(list);
 	return (return_code);
 }
 
-//TODO:cleanup malloc
 int	check_input(size_t ac, char **av)
 {
 	int		*list;
 	size_t	i;
 	size_t	j;
+
 	list = malloc(sizeof(int) * ac - 1);
 	i = 1;
 	j = 0;
@@ -58,15 +58,20 @@ int	check_input(size_t ac, char **av)
 
 void	print_stack(t_stack *stack, int del)
 {
-	t_stack *tmp;
-	while (stack->next)
+	t_stack	*tmp;
+	t_stack	*cursor;
+
+	if (!stack)
+		return ;
+	cursor = stack;
+	while (cursor->next != stack)
 	{
-		printf("|%d|\n", stack->value);
-		tmp = stack;
-		stack = stack->next;
+		printf("|%d-%zu|\n", cursor->value, cursor->rank);
+		tmp = cursor;
+		cursor = cursor->next;
 		if (del)
 			free(tmp);
 	}
-	printf("|%d|\n", stack->value);
-	printf("|_|\n");
+	printf("|%d-%zu|\n", cursor->value, cursor->rank);
+	printf("|__|\n\n");
 }

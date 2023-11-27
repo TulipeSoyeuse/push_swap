@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:21:58 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:27 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/27 17:10:06 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,22 @@ t_stack	*node_new(int content)
 	new->value = content;
 	new->next = NULL;
 	return (new);
+}
+
+t_stack	*init_stack(int ac, char **av)
+{
+	int		i;
+	t_stack	*stack;
+	t_stack *tmp;
+
+	stack = NULL;
+	i = -1;
+	while (++i < ac)
+	{
+		tmp =  node_new(ft_atoi(av[i]));
+		if (!tmp)
+			return (NULL);
+		append(&stack,tmp);
+	}
+	return (stack);
 }
