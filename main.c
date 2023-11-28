@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/28 01:31:36 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/28 12:17:35 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int main(int ac, char **av)
 	stack_a = setup(ac, av);
 	if (!stack_a)
 		return (1);
-	print_stack(stack_a, 0);
 	phase_1(&stack_a, &stack_b);
+	print_stack(stack_a, 1);
 	print_stack(stack_b, 1);
 
 }
