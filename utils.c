@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/27 17:10:23 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/28 01:26:28 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,18 @@ void	print_stack(t_stack *stack, int del)
 	}
 	printf("|%d-%zu|\n", cursor->value, cursor->rank);
 	printf("|__|\n\n");
+}
+size_t get_stack_len(t_stack **stack)
+{
+	t_stack *cursor;
+	size_t len;
+
+	cursor = *stack;
+	len = 1;
+	while (cursor->next != *stack)
+	{
+		len++;
+		cursor = cursor->next;
+	}
+	return (len);
 }
