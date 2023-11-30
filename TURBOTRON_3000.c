@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:40:49 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:44:33 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:50:14 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	phase_1_chose_move(t_stack **stack_a, t_stack **stack_b,
 	else if ((*stack_a)->split == split_nb || (*stack_a)->split == split_nb + 1)
 	{
 		if ((*stack_b)->split == split_nb + 1 && get_stack_len(stack_b) > 1
-		&& split_value_left(stack_b, split_nb, split_nb))
+			&& split_value_left(stack_b, split_nb, split_nb))
 			rb(stack_b);
 		else
 			pb(stack_a, stack_b);
@@ -99,14 +99,9 @@ static void	phase_2(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	TURBOTRON_3000(t_stack **stack_a, t_stack **stack_b)
+void	turbotron_3000(t_stack **stack_a, t_stack **stack_b)
 {
 	tag_split(stack_a);
 	phase_1(stack_a, stack_b);
 	phase_2(stack_a, stack_b);
-	return ;
-	print_stack(stack_a, 0);
-	print_stack(stack_b, 0);
-	print_stack(stack_a, 1);
-	print_stack(stack_b, 1);
 }

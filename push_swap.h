@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:19:04 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:46:36 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:50:05 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ void				phase_2_rotate(t_stack **stack_a, t_stack **stack_b,
 void				add_split(t_stack *stack, float min, float max, int split);
 int					rr_or_r(t_stack **stack, size_t rank);
 void				sorting(t_stack **stack_a, t_stack **stack_b);
-void				TURBOTRON_3000(t_stack **stack_a, t_stack **stack_b);
+void				turbotron_3000(t_stack **stack_a, t_stack **stack_b);
 #endif

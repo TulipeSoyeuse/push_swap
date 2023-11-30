@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:05:29 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 19:07:09 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:50:32 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	phase_2_rotate(t_stack **stack_a, t_stack **stack_b, int rank)
 {
-	int rotate;
+	int	rotate;
 
-	rotate = rr_or_r(stack_a,rank);
+	rotate = rr_or_r(stack_a, rank);
 	if (rotate < 0)
 	{
 		while (rotate++)
