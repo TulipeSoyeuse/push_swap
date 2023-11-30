@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 20:50:02 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/28 12:17:10 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:15:42 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a;
 
-	if (!stack_b)
+	if (!(*stack_b))
 		return ;
 	a = popleft(stack_b);
 	appendleft(stack_a, a);
@@ -55,7 +55,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a;
 
-	if (!stack_a	)
+	if (!(*stack_a))
 		return ;
 	a = popleft(stack_a);
 	appendleft(stack_b, a);

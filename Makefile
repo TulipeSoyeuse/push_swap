@@ -6,7 +6,7 @@
 #    By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 11:10:00 by rdupeux           #+#    #+#              #
-#    Updated: 2023/11/27 17:14:17 by rdupeux          ###   ########.fr        #
+#    Updated: 2023/11/30 18:51:28 by rdupeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	make -C libft/ fclean
+	make -C libft/ clean
 	rm -f $(NAME) a.out core $(name) $(DEBUG)
 
 .PHONY: all clean fclean re

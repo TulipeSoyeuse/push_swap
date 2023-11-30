@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   algo2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 19:55:42 by rdupeux          ###   ########.fr       */
+/*   Created: 2023/11/30 19:05:29 by rdupeux           #+#    #+#             */
+/*   Updated: 2023/11/30 19:07:09 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*setup(int ac, char **av)
+void	phase_2_rotate(t_stack **stack_a, t_stack **stack_b, int rank)
 {
-	t_stack	*a;
+	int rotate;
 
-	if (check_input(ac, av))
+	rotate = rr_or_r(stack_a,rank);
+	if (rotate < 0)
 	{
-		ft_putstr_fd("ERROR\n", 2);
-		return (NULL);
+		while (rotate++)
+			rra(stack_a);
+		pb(stack_a, stack_b);
 	}
-	a = init_stack(ac - 1, &av[1]);
-	if (!a)
-		return (NULL);
-	ranksort_stk(&a);
-	return (a);
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	stack_a = setup(ac, av);
-	if (!stack_a)
-		return (1);
-	sorting(&stack_a, &stack_b);
+	else if (rotate >= 0)
+	{
+		while (rotate--)
+			ra(stack_a);
+		pb(stack_a, stack_b);
+	}
 }

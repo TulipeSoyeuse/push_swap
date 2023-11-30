@@ -6,14 +6,14 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:19:04 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 11:07:08 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:46:36 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # ifndef SPLIT_NB
-#  define SPLIT_NB 3
+#  define SPLIT_NB 10
 # endif
 # include "libft/libft.h"
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 t_stack				*node_new(int content);
 int					check_input(size_t ac, char **av);
 t_stack				*init_stack(int ac, char **av);
-void				print_stack(t_stack *stack, int del);
+void				print_stack(t_stack **stack, int del);
 void				ranksort_stk(t_stack **stack);
 size_t				get_stack_len(t_stack **stack);
 
@@ -49,6 +49,12 @@ void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
+int					split_value_left(t_stack **stack, unsigned int split_nb,
+						unsigned int split_nb_2);
+void				phase_2_rotate(t_stack **stack_a, t_stack **stack_b,
+						int rank);
+void				add_split(t_stack *stack, float min, float max, int split);
+int					rr_or_r(t_stack **stack, size_t rank);
 void				sorting(t_stack **stack_a, t_stack **stack_b);
 void				TURBOTRON_3000(t_stack **stack_a, t_stack **stack_b);
 #endif
