@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:26:02 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/28 13:10:15 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 11:13:07 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	algo3(t_stack **stack_a)
 	else if (cursor->next->next->rank > cursor->rank
 		&& cursor->rank > cursor->next->rank) // 2,1,3
 		sa(stack_a);
-	else if (cursor->next->next->rank > cursor->next->rank
+	else if (cursor->next->next->rank > cursor->rank
 		&& cursor->next->rank > cursor->rank) // 1,3,2
 	{
 		rra(stack_a);
@@ -91,19 +91,17 @@ void	algominus10(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b);
 }
 
-void	phase_1(t_stack **stack_a, t_stack **stack_b)
+void	sorting(t_stack **stack_a, t_stack **stack_b)
 {
 	int	len;
 
-	// t_stack	*cursor;
 	len = get_stack_len(stack_a);
-	// cursor = *stack_a;
 	if (len == 3)
-	{
 		algo3(stack_a);
-	}
+	else if (len == 2)
+		sa(stack_a);
 	else if (len <= 10)
-	{
 		algominus10(stack_a, stack_b);
-	}
+	else
+		TURBOTRON_3000(stack_a, stack_b);
 }

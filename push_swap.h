@@ -6,21 +6,24 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:19:04 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/28 01:18:44 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/11/30 11:07:08 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define SLIPT_NB 3
+# ifndef SPLIT_NB
+#  define SPLIT_NB 3
+# endif
 # include "libft/libft.h"
 
 typedef struct s_stack
 {
-	int				value;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				value;
 	size_t			rank;
+	unsigned int	split;
 }					t_stack;
 
 t_stack				*node_new(int content);
@@ -46,5 +49,6 @@ void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
-void				phase_1(t_stack **stack_a, t_stack **stack_b);
+void				sorting(t_stack **stack_a, t_stack **stack_b);
+void				TURBOTRON_3000(t_stack **stack_a, t_stack **stack_b);
 #endif
