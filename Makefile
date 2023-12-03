@@ -6,7 +6,7 @@
 #    By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 11:10:00 by rdupeux           #+#    #+#              #
-#    Updated: 2023/11/30 18:51:28 by rdupeux          ###   ########.fr        #
+#    Updated: 2023/12/03 17:56:05 by rdupeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
 debug: $(SRCS) $(LIBFT)
-	$(CC) -g3 $(CFLAGS) $^ -o $(DEBUG)
+	$(CC) -g3 -gdwarf-4 $(CFLAGS) $^ -o $(DEBUG)
 # Clean Up Objects, Exectuables, Dumps out of source directory
 clean:
 	rm -f $(OBJS)

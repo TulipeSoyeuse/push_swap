@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:19:04 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:50:05 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/03 17:23:05 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_stack				*init_stack(int ac, char **av);
 void				print_stack(t_stack **stack, int del);
 void				ranksort_stk(t_stack **stack);
 size_t				get_stack_len(t_stack **stack);
+void				cleanup_memory(t_stack *stack_a, t_stack *stack_b);
 
 void				appendleft(t_stack **stack, t_stack *to_append);
 t_stack				*popleft(t_stack **stack);

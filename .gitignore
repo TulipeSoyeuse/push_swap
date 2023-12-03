@@ -1,5 +1,10 @@
 *.o
 a.out
 core
-push_swap_debug
+push_swap_debug*
+push_swap_tester
 push_swap
+0
+Push-Swap-Tester/
+log.txt
+traces.txt

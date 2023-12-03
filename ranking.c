@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:51:27 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:50:23 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/03 18:11:25 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,14 @@ void	ranksort_stk(t_stack **stack)
 	t_stack	*cursor;
 
 	cursor = *stack;
-	len = 1;
+	len = get_stack_len(stack);
+	i = 0;
 	while (cursor->next != *stack)
 	{
-		len++;
+		cursor->rank = 0;
 		cursor = cursor->next;
 	}
-	i = 0;
+	cursor->rank = 0;
 	while (i <= len)
 		min_value(stack, i++);
 }

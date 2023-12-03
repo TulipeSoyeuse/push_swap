@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:26:02 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:52:12 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/03 17:10:03 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	algo3(t_stack **stack_a)
 
 	cursor = *stack_a;
 	if (cursor->rank < cursor->next->rank
-		&& cursor->rank > cursor->next->next->rank)
+		&& cursor->rank > cursor->next->next->rank )
 		rra(stack_a);
 	else if (cursor->rank > cursor->next->next->rank
 		&& cursor->next->next->rank > cursor->next->rank)
@@ -78,8 +78,8 @@ void	algominus10(t_stack **stack_a, t_stack **stack_b)
 	len = get_stack_len(stack_a);
 	while (++i < len - 2)
 		phase_2_rotate(stack_a, stack_b, i);
-	if ((*stack_a)->rank > (*stack_a)->next->rank
-		&& (*stack_a)->next->rank > (*stack_a)->next->next->rank)
+	if ((*stack_a)->rank < (*stack_a)->next->rank
+		&& (*stack_a)->next->rank < (*stack_a)->next->next->rank)
 		return ;
 	algo3(stack_a);
 	while (*stack_b)
@@ -93,8 +93,8 @@ void	sorting(t_stack **stack_a, t_stack **stack_b)
 	len = get_stack_len(stack_a);
 	if (len == 3)
 	{
-		if ((*stack_a)->rank > (*stack_a)->next->rank
-			&& (*stack_a)->next->rank > (*stack_a)->next->next->rank)
+		if ((*stack_a)->rank < (*stack_a)->next->rank
+			&& (*stack_a)->next->rank < (*stack_a)->next->next->rank)
 			return ;
 		algo3(stack_a);
 	}
