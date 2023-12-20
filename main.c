@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/03 18:12:47 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/10 16:01:31 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	cleanup_av(char **av)
+{
+	char **a;
+
+	a = av;
+	while (*av)
+	{
+		free(*av);
+		av++;
+	}
+	free(a);
+}
 
 void	cleanup_memory(t_stack *stack_a, t_stack *stack_b)
 {
@@ -33,16 +46,16 @@ void	cleanup_memory(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-t_stack	*setup(int ac, char **av)
+t_stack	*setup(int ac, char **av, int start)
 {
 	t_stack	*a;
 
-	if (check_input(ac, av))
+	if (check_input(ac - start , &av[start]))
 	{
 		ft_putstr_fd("ERROR\n", 2);
 		return (NULL);
 	}
-	a = init_stack(ac - 1, &av[1]);
+	a = init_stack(ac - start, &av[start]);
 	if (!a)
 		return (NULL);
 	ranksort_stk(&a);
@@ -54,8 +67,22 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	if (ac == 1)
+		return (0);
+	if (ac == 2)
+	{
+		av = ft_split(av[1],' ');
+		if (!av)
+			return (1);
+		ac = 0;
+		while (av[ac])
+			ac++;
+		stack_a = setup(ac, av, 0);
+		cleanup_av(av);
+	}
+	else
+		stack_a = setup(ac, av, 1);
 	stack_b = NULL;
-	stack_a = setup(ac, av);
 	if (!stack_a)
 		return (1);
 	sorting(&stack_a, &stack_b);

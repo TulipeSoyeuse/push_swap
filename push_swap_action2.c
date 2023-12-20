@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_action2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 20:50:02 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:15:42 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/10 16:13:22 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sa(t_stack **stack_a)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (!((*stack_a)->next->next != *stack_a && (*stack_a)->next != *stack_a))
+	if ((*stack_a)->next == *stack_a)
 		return ;
 	a = popleft(stack_a);
 	b = popleft(stack_a);

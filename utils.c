@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:50:54 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/10 15:46:06 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	check_input(size_t ac, char **av)
 	size_t	i;
 	size_t	j;
 
-	list = malloc(sizeof(int) * ac - 1);
-	i = 1;
+	list = malloc(sizeof(int) * ac);
+	i = 0;
 	j = 0;
 	while (i < ac)
 	{
@@ -45,10 +45,10 @@ int	check_input(size_t ac, char **av)
 		list[j++] = ft_atoi(av[i++]);
 	}
 	i = 0;
-	while (i < ac - 1)
+	while (i < ac)
 	{
 		j = i + 1;
-		while (j < ac - 1)
+		while (j < ac)
 			if (list[j++] == list[i])
 				return (cleanup(list, 1));
 		i++;

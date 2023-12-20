@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:26:02 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/03 17:10:03 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/10 16:13:58 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,15 @@ void	sorting(t_stack **stack_a, t_stack **stack_b)
 	int	len;
 
 	len = get_stack_len(stack_a);
+	if (len == 1)
+		return ;
+	if (len == 2)
+	{
+		if ((*stack_a)->rank > (*stack_a)->next->rank)
+			sa(stack_a);
+		else
+			return ;
+	}
 	if (len == 3)
 	{
 		if ((*stack_a)->rank < (*stack_a)->next->rank
@@ -98,8 +107,6 @@ void	sorting(t_stack **stack_a, t_stack **stack_b)
 			return ;
 		algo3(stack_a);
 	}
-	else if (len == 2)
-		sa(stack_a);
 	else if (len <= 10)
 		algominus10(stack_a, stack_b);
 	else
