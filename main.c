@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/10 16:01:31 by romain           ###   ########.fr       */
+/*   Updated: 2023/12/26 17:05:56 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack	*setup(int ac, char **av, int start)
 
 	if (check_input(ac - start , &av[start]))
 	{
-		ft_putstr_fd("ERROR\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		return (NULL);
 	}
 	a = init_stack(ac - start, &av[start]);

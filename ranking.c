@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ranking.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:51:27 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/03 18:11:25 by rdupeux          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:12:01 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void static	min_value(t_stack **stack, int rank)
+static void	min_value(t_stack **stack, int rank)
 {
 	t_stack	*cursor;
 	t_stack	*tmp;
