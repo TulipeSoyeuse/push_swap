@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/27 14:08:44 by romain           ###   ########.fr       */
+/*   Updated: 2024/01/10 12:26:36 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 int	check_val(char *s)
 {
+	char	*str;
+
+	str = s;
 	while (*s)
 	{
 		if (!ft_isdigit(*s) && *s != '-')
 			return (1);
 		s++;
 	}
+	if (ft_strncmp(ft_itoa(ft_atoi(str)), str, ft_strlen(str)))
+		return (1);
 	return (0);
 }
 

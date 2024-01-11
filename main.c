@@ -6,11 +6,17 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/12/26 17:05:56 by romain           ###   ########.fr       */
+/*   Updated: 2024/01/10 15:16:53 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void error()
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
 void	cleanup_av(char **av)
 {
@@ -51,10 +57,7 @@ t_stack	*setup(int ac, char **av, int start)
 	t_stack	*a;
 
 	if (check_input(ac - start , &av[start]))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (NULL);
-	}
+		error();
 	a = init_stack(ac - start, &av[start]);
 	if (!a)
 		return (NULL);
@@ -71,6 +74,8 @@ int	main(int ac, char **av)
 		return (0);
 	if (ac == 2)
 	{
+		if (!ft_strlen(av[1]))
+			error();
 		av = ft_split(av[1],' ');
 		if (!av)
 			return (1);
