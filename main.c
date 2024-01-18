@@ -6,13 +6,13 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/01/10 15:16:53 by romain           ###   ########.fr       */
+/*   Updated: 2024/01/18 12:11:53 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error()
+void	error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
@@ -20,7 +20,7 @@ void error()
 
 void	cleanup_av(char **av)
 {
-	char **a;
+	char	**a;
 
 	a = av;
 	while (*av)
@@ -33,8 +33,8 @@ void	cleanup_av(char **av)
 
 void	cleanup_memory(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack *next;
-	size_t len;
+	t_stack	*next;
+	size_t	len;
 
 	len = get_stack_len(&stack_a);
 	while (len--)
@@ -56,7 +56,7 @@ t_stack	*setup(int ac, char **av, int start)
 {
 	t_stack	*a;
 
-	if (check_input(ac - start , &av[start]))
+	if (check_input(ac - start, &av[start]))
 		error();
 	a = init_stack(ac - start, &av[start]);
 	if (!a)
@@ -76,7 +76,7 @@ int	main(int ac, char **av)
 	{
 		if (!ft_strlen(av[1]))
 			error();
-		av = ft_split(av[1],' ');
+		av = ft_split(av[1], ' ');
 		if (!av)
 			return (1);
 		ac = 0;

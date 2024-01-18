@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:05:29 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/01/18 12:07:03 by romain           ###   ########.fr       */
+/*   Updated: 2024/01/18 12:11:24 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ int	is_sorted(t_stack **stack_a)
 	cursor = (*stack_a)->next;
 	while (cursor != *stack_a)
 	{
-		//printf("prev:%d, val:%d\n",cursor->prev->value, cursor->value);
 		if (cursor->prev->value > cursor->value)
 		{
-		//	write(1,"return 0\n",10);
 			return (0);
 		}
 		cursor = cursor->next;
 	}
-	//write(1,"return 1\n",10);
 	return (1);
 }
 
