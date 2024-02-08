@@ -6,11 +6,22 @@
 #    By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 11:10:00 by rdupeux           #+#    #+#              #
-#    Updated: 2023/12/03 17:56:05 by rdupeux          ###   ########.fr        #
+#    Updated: 2024/02/08 11:16:25 by rdupeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS= $(wildcard *.c)
+SRCS=	algo1.c \
+		algo2.c \
+		main.c 	\
+		push_swap_action.c \
+		push_swap_action2.c \
+		ranking.c \
+		stack_action_base.c \
+		stack_init.c \
+		turbotron_3000.c \
+		utils.c \
+		utils2.c
+	
 OBJS= $(SRCS:.c=.o)
 
 # Compiler, Linker Defines
