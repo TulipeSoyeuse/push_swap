@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.C                                           :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:19:59 by rdupeux           #+#    #+#             */
-/*   Updated: 2023/11/30 20:44:05 by rdupeux          ###   ########.fr       */
+/*   Updated: 2024/02/10 14:22:47 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack	*handle_ac(char *input)
+{
+	char	**av;
+	int		ac;
+	t_stack	*stack;
+
+	if (!ft_strlen(input))
+		return (NULL);
+	av = ft_split(input, ' ');
+	if (!av)
+		return (NULL);
+	ac = 0;
+	while (av[ac])
+		ac++;
+	stack = setup(ac, av, 0);
+	cleanup_av(av);
+	return (stack);
+}
 
 void	add_split(t_stack *stack, float min, float max, int split)
 {

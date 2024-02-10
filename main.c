@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/01/18 12:11:53 by romain           ###   ########.fr       */
+/*   Updated: 2024/02/10 14:22:31 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_stack	*setup(int ac, char **av, int start)
 	t_stack	*a;
 
 	if (check_input(ac - start, &av[start]))
-		error();
+		return (NULL);
 	a = init_stack(ac - start, &av[start]);
 	if (!a)
 		return (NULL);
@@ -73,23 +73,12 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	if (ac == 2)
-	{
-		if (!ft_strlen(av[1]))
-			error();
-		av = ft_split(av[1], ' ');
-		if (!av)
-			return (1);
-		ac = 0;
-		while (av[ac])
-			ac++;
-		stack_a = setup(ac, av, 0);
-		cleanup_av(av);
-	}
+		stack_a = handle_ac(av[1]);
 	else
 		stack_a = setup(ac, av, 1);
 	stack_b = NULL;
 	if (!stack_a)
-		return (1);
+		error();
 	sorting(&stack_a, &stack_b);
 	cleanup_memory(stack_a, stack_b);
 }

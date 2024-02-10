@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:19:04 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/02/08 11:01:38 by romain           ###   ########.fr       */
+/*   Updated: 2024/02/10 14:23:08 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,7 @@ void				add_split(t_stack *stack, float min, float max, int split);
 int					rr_or_r(t_stack **stack, size_t rank);
 void				sorting(t_stack **stack_a, t_stack **stack_b);
 void				turbotron_3000(t_stack **stack_a, t_stack **stack_b);
+t_stack				*handle_ac(char *input);
+void				cleanup_av(char **av);
+t_stack				*setup(int ac, char **av, int start);
 #endif

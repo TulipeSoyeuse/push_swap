@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/02/08 11:08:00 by romain           ###   ########.fr       */
+/*   Updated: 2024/02/10 14:25:18 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	check_input(size_t ac, char **av)
 	size_t	j;
 
 	list = malloc(sizeof(int) * ac);
+	if (!list)
+		return (1);
 	i = 0;
 	j = 0;
 	while (i < ac)
