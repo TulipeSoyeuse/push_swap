@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:17:48 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/01/18 12:11:53 by romain           ###   ########.fr       */
+/*   Updated: 2024/02/08 15:11:07 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_stack	*setup(int ac, char **av, int start)
 	t_stack	*a;
 
 	if (check_input(ac - start, &av[start]))
-		error();
+		return (NULL);
 	a = init_stack(ac - start, &av[start]);
 	if (!a)
 		return (NULL);

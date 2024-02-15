@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/02/08 11:08:00 by romain           ###   ########.fr       */
+/*   Updated: 2024/02/08 15:08:23 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_input(size_t ac, char **av)
 	return (cleanup(list, 0));
 }
 
-void	print_stack(t_stack **stack, int del)
+/* void	print_stack(t_stack **stack, int del)
 {
 	t_stack	*tmp;
 	t_stack	*cursor;
@@ -81,7 +81,7 @@ void	print_stack(t_stack **stack, int del)
 	}
 	printf("|%d-%zu-%d|\n", cursor->value, cursor->rank, cursor->split);
 	printf("|____|\n\n");
-}
+} */
 
 size_t	get_stack_len(t_stack **stack)
 {
