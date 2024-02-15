@@ -6,7 +6,7 @@
 /*   By: rdupeux <rdupeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:36:31 by rdupeux           #+#    #+#             */
-/*   Updated: 2024/02/08 15:08:23 by rdupeux          ###   ########.fr       */
+/*   Updated: 2024/02/15 11:21:13 by rdupeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	check_input(size_t ac, char **av)
 	size_t	j;
 
 	list = malloc(sizeof(int) * ac);
+	if (!list)
+		return (1);
 	i = 0;
 	j = 0;
 	while (i < ac)
